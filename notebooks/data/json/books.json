@@ -1,0 +1,150 @@
+{
+  "catalog": {
+    "book": [
+      {
+        "id": "book01", 
+        "author": "Fabio Arciniegas",
+        "title": "XML Developer's Guide",
+        "genre": "Computer",
+        "price": "76.80",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2000-12-21T00:00:00.000Z"
+        },
+        "description": "A hands-on guide to XML provides thorough coverage of the language's Web publishing and data exchange applications, detailing such emerging XML standards as XSLT, XPath, and XLink."
+      },
+      {
+        "id": "book02",
+        "author": "Ralls, Kim", 
+        "title": "Midnight Rain",
+        "genre": "Fantasy",
+        "price": "5.95",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2000-12-16T00:00:00.000Z"
+        },
+        "description": "A former architect battles corporate zombies, an evil sorceress, and her own childhood to become queen of the world."
+      },
+      {
+        "id": "book03",
+        "author": "Corets, Eva",
+        "title": "Maeve Ascendant",
+        "genre": "Fantasy",
+        "price": "5.95",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2000-11-17T00:00:00.000Z"
+        },
+        "description": "After the collapse of a nanotechnology society in England, the young survivors lay the foundation for a new society."
+      },
+      {
+        "id": "book04",
+        "author": "Corets, Eva",
+        "title": "Oberon's Legacy",
+        "genre": "Fantasy",
+        "price": "5.95",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2001-03-10T00:00:00.000Z"
+        },
+        "description": "In post-apocalypse England, the mysterious agent known only as Oberon helps to create a new life for the inhabitants of London. Sequel to Maeve Ascendant."
+      },
+      {
+        "id": "book05",
+        "author": "Corets, Eva",
+        "title": "The Sundered Grail",
+        "genre": "Fantasy",
+        "price": "5.95",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2001-09-10T00:00:00.000Z"
+        },
+        "description": "The two daughters of Maeve, half-sisters, battle one another for control of England. Sequel to Oberon's Legacy."
+      },
+      {
+        "id": "book06",
+        "author": "Randall, Cynthia",
+        "title": "Lover Birds",
+        "genre": "Romance",
+        "price": "4.95",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2000-09-02T00:00:00.000Z"
+        },
+        "description": "When Carla meets Paul at an ornithology conference, tempers fly as feathers get ruffled."
+      },
+      {
+        "id": "book07",
+        "author": "Thurman, Paula",
+        "title": "Splish Splash",
+        "genre": "Romance",
+        "price": "4.95",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2000-11-02T00:00:00.000Z"
+        },
+        "description": "A deep sea diver finds true love twenty thousand leagues beneath the sea."
+      },
+      {
+        "id": "book08",
+        "author": "Knorr, Stefan",
+        "title": "Creepy Crawlies",
+        "genre": "Horror",
+        "price": "4.95",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2000-12-06T00:00:00.000Z"
+        },
+        "description": "An anthology of horror stories about roaches, centipedes, scorpions and other insects."
+      },
+      {
+        "id": "book09",
+        "author": "Kress, Peter",
+        "title": "Paradox Lost",
+        "genre": "Science Fiction",
+        "price": "6.95",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2000-11-02T00:00:00.000Z"
+        },
+        "description": "After an inadvertant trip through a Heisenberg Uncertainty Device, James Salway discovers the problems of being quantum."
+      },
+      {
+        "id": "book10",
+        "author": "Meyers, James P.",
+        "title": "Python Programming Bible",
+        "genre": "Computer",
+        "price": "15.87",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2023-10-13T00:00:00.000Z"
+        },
+        "description": "Python programming is explored in detail beyond the basics."
+      },
+      {
+        "id": "book11",
+        "author": "Ray, Erik T.",
+        "title": "Learning XML, Second Edition",
+        "genre": "Computer",
+        "price": "21.99",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2023-10-28T00:00:00.000Z"
+        },
+        "description": "Provides grounded understanding of XML (the Extensible Markup Language) and its potential."
+      },
+      {
+        "id": "book12",
+        "author": "Dotson, Chris",
+        "title": "Practical Cloud Security",
+        "genre": "Computer",
+        "price": "49.99",
+        "publish_date": {
+          "@type": "ISODate",
+          "value": "2023-11-14T00:00:00.000Z"
+        },
+        "description": "Examines security best practices for multi-vendor cloud environments."
+      }
+    ]
+  }
+}

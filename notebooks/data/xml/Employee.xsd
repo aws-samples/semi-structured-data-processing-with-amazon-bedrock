@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://Employees" xmlns="http://Employees">
+  <xs:complexType name="Country">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" default="U.S.A."/>
+    </xs:sequence>
+    <xs:attribute name="code" type="xs:language">
+      <xs:annotation>
+        <xs:documentation>The registered IANA country code of the format xx-xx.  For example: en-us.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="Street">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  <xs:simpleType name="City">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="State">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Zip">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:maxInclusive value="99999" />
+      <xs:minInclusive value="00001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EmployeeID">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The 5 digit employee identification code</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:length value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attributeGroup name="EmployeeAttributes">
+    <xs:attribute name="id" type="EmployeeID" use="required" />
+    <xs:attribute name="hireDate" type="xs:date" />
+    <xs:attribute name="title" type="Role" default="SDE" />
+    <xs:attribute name="fullTime" type="xs:boolean" />
+  </xs:attributeGroup>
+  <xs:element name="Street" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Full street address including apartment number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:group name="Address">
+    <xs:sequence>
+      <xs:element name="Street" type="Street">
+        <xs:annotation>
+          <xs:documentation>Street of residence</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="City" type="City">
+        <xs:annotation>
+          <xs:documentation>City of residence</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+	  <xs:element name="State" type="State">
+        <xs:annotation>
+          <xs:documentation>State of residence</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Zip" type="Zip">
+        <xs:annotation>
+          <xs:documentation>The postal code or zip code</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Country" type="Country">
+        <xs:annotation>
+          <xs:documentation>The country of origin</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Phone">
+        <xs:annotation>
+          <xs:documentation>The telephone number</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(\(\d\d\d\)|\d\d\d)[ \t]*\d\d\d[- \t]\d\d\d\d" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:simpleType name="Role">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Enterprise Architect">
+      </xs:enumeration>
+      <xs:enumeration value="Software Development Manager" />
+      <xs:enumeration value="Senior Vice President" />
+      <xs:enumeration value="Vice President" />
+      <xs:enumeration value="General Manager" />
+      <xs:enumeration value="Director" />
+      <xs:enumeration value="Product Manager" />
+      <xs:enumeration value="Technical Product Manager" />
+      <xs:enumeration value="Software Development Lead" />
+      <xs:enumeration value="Software Development Engineer" />
+      <xs:enumeration value="Software Test Lead" />
+      <xs:enumeration value="Software Test Engineer" />
+      <xs:enumeration value="Software Test Manager" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Employee">
+    <xs:annotation>
+      <xs:documentation>
+        Contains the employee details.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name">
+        <xs:annotation>
+          <xs:documentation>The name of the employee. This must match the name in a Government Issued Id.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="First" type="xs:string" />
+            <xs:element name="Middle" type="xs:string" minOccurs="0" />
+            <xs:element name="Last" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:group ref="Address" />
+      <xs:element name="Photo" type="xs:anyURI"/>
+      <xs:any namespace="##any" maxOccurs="unbounded" minOccurs="0" />
+    </xs:sequence>
+    <xs:attributeGroup ref="EmployeeAttributes" />
+  </xs:complexType>
+  <xs:element name="Employee" type="Employee" >
+    <xs:annotation>
+      <xs:documentation>
+        The employee details.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Employees">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="Employee" />
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="UniqueId">
+      <xs:selector xpath="Employee"/>
+      <xs:field xpath="@id"/>
+    </xs:unique>
+  </xs:element>
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="Street" type="xs:string" />
+      <xs:element name="City" type="xs:string"/>
+	  <xs:element name="State" type="xs:string"/>
+      <xs:choice>
+        <xs:element name="Zip" type="xs:int"/>
+        <xs:element name="postalCode" type="xs:string"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="first" type="xs:int"/>
+    <xs:attribute name="attr2" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>

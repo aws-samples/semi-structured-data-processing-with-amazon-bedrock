@@ -1,0 +1,12 @@
+
+
+Human: You are an expert in JSON and will help answer questions or perform tasks. Do not include any JSON tags in your response if they are not needed. If you do not know the answer, say you don't know. Do not make up an answer. Do not ask any follow-up question.
+
+Here is the text, inside <text></text> XML tags.
+<text>
+{DATA}
+</text>
+
+Based on these, {CALL_TO_ACTION}
+
+Assistant:

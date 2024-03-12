@@ -1,0 +1,13 @@
+id,lastName,firstName,title,genre,price,publishDate,description
+book01,Arciniegas,Fabio,XML Developer's Guide,Computer,76.8,2000-12-21,"A hands-on guide to XML provides thorough coverage of the language's Web publishing and data exchange applications, detailing such emerging XML standards as XSLT, XPath, and XLink."
+book02,Ralls, Kim,Midnight Rain,Fantasy,5.95,2000-12-16,"A former architect battles corporate zombies, an evil sorceress, and her own childhood to become queen of the world."
+book03,Corets, Eva,Maeve Ascendant,Fantasy,5.95,2000-11-17,"After the collapse of a nanotechnology society in England, the young survivors lay the foundation for a new society."
+book04,Corets, Eva,Oberon's Legacy,Fantasy,5.95,2001-03-10,"In post-apocalypse England, the mysterious agent known only as Oberon helps to create a new life for the inhabitants of London. Sequel to Maeve Ascendant."
+book05,Corets, Eva,The Sundered Grail,Fantasy,5.95,2001-09-10,"The two daughters of Maeve, half-sisters, battle one another for control of England. Sequel to Oberon's Legacy."
+book06,Randall, Cynthia,Lover Birds,Romance,4.95,2000-09-02,"When Carla meets Paul at an ornithology conference, tempers fly as feathers get ruffled."
+book07,Thurman, Paula,Splish Splash,Romance,4.95,2000-11-02,A deep sea diver finds true love twenty thousand leagues beneath the sea.
+book08,Knorr, Stefan,Creepy Crawlies,Horror,4.95,2000-12-06,"An anthology of horror stories about roaches, centipedes, scorpions and other insects."
+book09,Kress, Peter,Paradox Lost,Science Fiction,6.95,2000-11-02,"After an inadvertant trip through a Heisenberg Uncertainty Device, James Salway discovers the problems of being quantum."
+book10,Meyers, James P.,Python Programming Bible,Computer,15.87,2023-10-13,Python programming is explored in detail beyond the basics.
+book11,Ray, Erik T.,"Learning XML, Second Edition",Computer,21.99,2003-10-28,Provides grounded understanding of XML (the Extensible Markup Language) and its potential.
+book12,Dotson, Chris,Practical Cloud Security,Computer,49.99,2023-11-14,Examines security best practices for multi-vendor cloud environments.

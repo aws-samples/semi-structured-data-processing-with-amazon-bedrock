@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<catalog>
+   <book id="book01">
+	  <title>XML Developer's Guide</title>
+      <author>Fabio Arciniegas</author>
+      <genre>Computer</genre>
+      <price>76.80</price>
+      <publish_date type="YYYY-MM-DD">2000-12-21</publish_date>
+      <description>A hands-on guide to XML provides thorough coverage of the language's Web publishing
+	  and data exchange applications, detailing such emerging XML standards as XSLT, XPath, and XLink.</description>
+   </book>
+   <book id="book02">
+      <title>Midnight Rain</title>
+      <author>Ralls, Kim</author>
+      <genre>Fantasy</genre>
+      <price>5.95</price>
+      <publish_date type="YYYY-MM-DD">2000-12-16</publish_date>
+      <description>A former architect battles corporate zombies, 
+      an evil sorceress, and her own childhood to become queen 
+      of the world.</description>
+   </book>
+   <book id="book03">
+      <title>Maeve Ascendant</title>
+      <author>Corets, Eva</author>
+      <genre>Fantasy</genre>
+      <price>5.95</price>
+      <publish_date type="YYYY-MM-DD">2000-11-17</publish_date>
+      <description>After the collapse of a nanotechnology 
+      society in England, the young survivors lay the 
+      foundation for a new society.</description>
+   </book>
+   <book id="book04">
+      <title>Oberon's Legacy</title>
+      <author>Corets, Eva</author>
+      <genre>Fantasy</genre>
+      <price>5.95</price>
+      <publish_date type="YYYY-MM-DD">2001-03-10</publish_date>
+      <description>In post-apocalypse England, the mysterious 
+      agent known only as Oberon helps to create a new life 
+      for the inhabitants of London. Sequel to Maeve 
+      Ascendant.</description>
+   </book>
+   <book id="book05">
+      <title>The Sundered Grail</title>
+      <author>Corets, Eva</author>
+      <genre>Fantasy</genre>
+      <price>5.95</price>
+      <publish_date type="YYYY-MM-DD">2001-09-10</publish_date>
+      <description>The two daughters of Maeve, half-sisters, 
+      battle one another for control of England. Sequel to 
+      Oberon's Legacy.</description>
+   </book>
+   <book id="book06">
+      <title>Lover Birds</title>
+      <author>Randall, Cynthia</author>
+      <genre>Romance</genre>
+      <price>4.95</price>
+      <publish_date type="YYYY-MM-DD">2000-09-02</publish_date>
+      <description>When Carla meets Paul at an ornithology 
+      conference, tempers fly as feathers get ruffled.</description>
+   </book>
+   <book id="book07">
+      <title>Splish Splash</title>
+      <author>Thurman, Paula</author>
+      <genre>Romance</genre>
+      <price>4.95</price>
+      <publish_date type="YYYY-MM-DD">2000-11-02</publish_date>
+      <description>A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.</description>
+   </book>
+   <book id="book08">
+      <title>Creepy Crawlies</title>
+      <author>Knorr, Stefan</author>
+      <genre>Horror</genre>
+      <price>4.95</price>
+      <publish_date type="YYYY-MM-DD">2000-12-06</publish_date>
+      <description>An anthology of horror stories about roaches,
+      centipedes, scorpions  and other insects.</description>
+   </book>
+   <book id="book09">
+      <title>Paradox Lost</title>
+      <author>Kress, Peter</author>
+      <genre>Science Fiction</genre>
+      <price>6.95</price>
+      <publish_date type="YYYY-MM-DD">2000-11-02</publish_date>
+      <description>After an inadvertant trip through a Heisenberg
+      Uncertainty Device, James Salway discovers the problems 
+      of being quantum.</description>
+   </book>
+   <book id="book10">
+      <title>Python Programming Bible</title>
+      <author>Meyers, James P.</author>
+      <genre>Computer</genre>
+      <price>15.87</price>
+      <publish_date type="YYYY-MM-DD">2023-10-13</publish_date>
+      <description>Python programming is explored in
+      detail beyond the basics.</description>
+   </book>
+   <book id="book11">
+      <title>Learning XML, Second Edition</title>
+      <author>Ray, Erik T.</author>
+      <genre>Computer</genre>
+      <price>21.99</price>
+      <publish_date type="YYYY-MM-DD">2003-10-28</publish_date>
+      <description>Provides grounded understanding
+      of XML (the Extensible Markup Language) and
+      its potential.</description>
+   </book>
+   <book id="book12">
+      <title>Practical Cloud Security</title>
+      <author>Dotson, Chris</author>
+      <genre>Computer</genre>
+      <price>49.99</price>
+      <publish_date type="YYYY-MM-DD">2023-11-14</publish_date>
+      <description>Examines security best practices
+      for multi-vendor cloud environments.</description>
+   </book>
+</catalog>
