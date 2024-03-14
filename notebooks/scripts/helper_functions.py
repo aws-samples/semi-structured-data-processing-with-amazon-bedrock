@@ -3,8 +3,9 @@ Copyright 2024 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
 SPDX-License-Identifier: MIT-0
 """
 import json
-from langchain.llms import Bedrock
 from langchain.prompts.prompt import PromptTemplate
+from langchain_community.llms import Bedrock
+from langchain_community.chat_models import BedrockChat
 import logging
 import os
 from timeit import default_timer as timer
@@ -67,6 +68,8 @@ def get_max_output_length(model_id):
         'anthropic.claude-instant-v1': 4000,
         'anthropic.claude-v2': 4000,
         'anthropic.claude-v2:1': 4000,
+        'anthropic.claude-3-sonnet-20240229-v1:0': 4000,
+        'anthropic.claude-3-haiku-20240307-v1:0': 4000,
         'ai21.j2-mid-v1': 8191,
         'ai21.j2-ultra-v1': 8191,
         'cohere.command-light-text-v14': 4096,
@@ -95,6 +98,11 @@ def get_model_kwargs(model_id, temperature, max_response_token_length):
             model_kwargs = {
                 "temperature": temperature,
                 "max_tokens_to_sample": max_response_token_length
+            }
+        case 'anthropic.claude-3-sonnet-20240229-v1:0' | 'anthropic.claude-3-haiku-20240307-v1:0':
+            model_kwargs = {
+                "temperature": temperature,
+                "max_tokens": max_response_token_length
             }
         case 'ai21.j2-mid-v1' | 'ai21.j2-ultra-v1':
             model_kwargs = {
@@ -183,21 +191,45 @@ def invoke_llm_with_bedrock_rt(model_id, bedrock_rt_client, temperature, max_res
     return prompt_response
 
 
-# Function to invoke the specified LLM through the LangChain client and
+# Function to invoke the specified LLM through the LangChain LLM client and
 # using the specified prompt
-def invoke_llm_with_lc(model_id, bedrock_rt_client, temperature, max_response_token_length, prompt):
+def invoke_llm_with_lc_llm(model_id, bedrock_rt_client, temperature, max_response_token_length, prompt):
     # Create the LangChain LLM client
-    logging.info('Creating LangChain client for LLM "{}"...'.format(model_id))
+    logging.info('Creating LangChain LLM client for LLM "{}"...'.format(model_id))
     llm = Bedrock(
-        model_id = model_id,
-        model_kwargs = get_model_kwargs(model_id, temperature, max_response_token_length),
-        client = bedrock_rt_client
+        model_id=model_id,
+        model_kwargs=get_model_kwargs(model_id, temperature, max_response_token_length),
+        client=bedrock_rt_client,
+        streaming=False
     )
-    logging.info('Completed creating LangChain client for LLM.')
+    logging.info('Completed creating LangChain LLM client for LLM.')
     logging.info('Invoking LLM "{}" with specified inference parameters "{}"...'.
                  format(llm.model_id, llm.model_kwargs))
     start = timer()
     prompt_response = llm.invoke(prompt)
+    end = timer()
+    logging.info(prompt + prompt_response)
+    logging.info('Completed invoking LLM.')
+    logging.info('Prompt processing duration = {} second(s)'.format(end - start))
+    return prompt_response
+
+
+# Function to invoke the specified LLM through the LangChain ChatModel client and
+# using the specified prompt
+def invoke_llm_with_lc_cm(model_id, bedrock_rt_client, temperature, max_response_token_length, prompt):
+    # Create the LangChain ChatModel client
+    logging.info('Creating LangChain ChatModel client for LLM "{}"...'.format(model_id))
+    llm = BedrockChat(
+        model_id=model_id,
+        model_kwargs=get_model_kwargs(model_id, temperature, max_response_token_length),
+        client=bedrock_rt_client,
+        streaming=False
+    )
+    logging.info('Completed creating LangChain ChatModel client for LLM.')
+    logging.info('Invoking LLM "{}" with specified inference parameters "{}"...'.
+                 format(llm.model_id, llm.model_kwargs))
+    start = timer()
+    prompt_response = llm.invoke(prompt).content
     end = timer()
     logging.info(prompt + prompt_response)
     logging.info('Completed invoking LLM.')
@@ -213,9 +245,9 @@ def process_prompt_1(model_id, bedrock_rt_client, temperature, max_response_toke
                             DATA=prompt_data, CALL_TO_ACTION=call_to_action)
     # Invoke the LLM and print the response
     match model_id:
-        case 'mistral.mistral-7b-instruct-v0:2' | 'mistral.mixtral-8x7b-instruct-v0:1':
-            return invoke_llm_with_bedrock_rt(model_id, bedrock_rt_client, temperature,
-                                              max_response_token_length, prompt)
+        case 'anthropic.claude-3-sonnet-20240229-v1:0' | 'anthropic.claude-3-haiku-20240307-v1:0':
+            return invoke_llm_with_lc_cm(model_id, bedrock_rt_client, temperature,
+                                         max_response_token_length, prompt)
         case _:
-            return invoke_llm_with_lc(model_id, bedrock_rt_client, temperature,
-                                      max_response_token_length, prompt)
+            return invoke_llm_with_lc_llm(model_id, bedrock_rt_client, temperature,
+                                          max_response_token_length, prompt)
